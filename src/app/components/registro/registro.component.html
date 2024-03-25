@@ -1,0 +1,82 @@
+<h1 style="font-family: Air Travelers Personal Use;text-align: center;">
+    <FONT size=48>Bienvenido al Listador</FONT>
+</h1>
+<br><br><br>
+<div style="margin-left: 155px;">
+    <app-file-reader></app-file-reader>
+    <button>Capturar</button>
+    <br><br>
+
+    <label for="">Fecha Desde:</label>
+    <input type="date" [(ngModel)]="fechaDesde" (change)="aplicarFiltros()">
+    <br>
+    <label for="">Fecha Hasta:</label>
+    <input type="date" [(ngModel)]="fechaHasta" (change)="aplicarFiltros()">
+
+    <br><br><br><label for="">Seleccione Area:</label>
+    <select [(ngModel)]="areaSeleccionada" (change)="aplicarFiltros()">
+        <option value="">Seleccione un área</option>
+        <!-- Aquí puedes generar opciones basadas en tus datos -->
+    </select>
+    <br><br>
+    <button>Exportar Excel
+
+    </button>
+
+</div>
+<br><br><br><br>
+
+
+<table mat-table [dataSource]="registrosFiltrados" class="mat-elevation-z8" style="margin-left: 25px;">
+
+    <!-- ÁREA Column -->
+    <ng-container matColumnDef="area">
+        <th mat-header-cell *matHeaderCellDef> ÁREA </th>
+        <td mat-cell *matCellDef="let registro"> {{ registro.area }} </td>
+    </ng-container>
+
+    <!-- Número Column -->
+    <ng-container matColumnDef="numero">
+        <th mat-header-cell *matHeaderCellDef> Número </th>
+        <td mat-cell *matCellDef="let registro"> {{ registro.Numero }} </td>
+    </ng-container>
+
+    <!-- Título Column -->
+    <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef> Título </th>
+        <td mat-cell *matCellDef="let registro"> {{ registro.Titulo }} </td>
+    </ng-container>
+
+    <!-- Expediente Column -->
+    <ng-container matColumnDef="expediente">
+        <th mat-header-cell *matHeaderCellDef> Expediente </th>
+        <td mat-cell *matCellDef="let registro"> {{ registro.Expediente }} </td>
+    </ng-container>
+
+    <!-- Procedencia Column -->
+    <ng-container matColumnDef="procedencia">
+        <th mat-header-cell *matHeaderCellDef> Procedencia </th>
+        <td mat-cell *matCellDef="let registro"> {{ registro.Procedencia }} </td>
+    </ng-container>
+
+    <!-- Número Interno Column -->
+    <ng-container matColumnDef="nInterno">
+        <th mat-header-cell *matHeaderCellDef> Nº Interno </th>
+        <td mat-cell *matCellDef="let registro"> {{ registro.NInterno }} </td>
+    </ng-container>
+
+    <!-- NOrga Column -->
+    <ng-container matColumnDef="nOrga">
+        <th mat-header-cell *matHeaderCellDef> N.rga </th>
+        <td mat-cell *matCellDef="let registro"> {{ registro.NOrga }} </td>
+    </ng-container>
+
+    <!-- Fecha Column -->
+    <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let registro"> {{ registro.Fecha | date }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let registro; columns: displayedColumns;"></tr>
+</table>
