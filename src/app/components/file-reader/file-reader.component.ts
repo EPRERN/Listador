@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Registro } from 'src/app/interface/registro.interface';
 
 @Component({
   selector: 'app-file-reader',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./file-reader.component.css']
 })
 export class FileReaderComponent {
+  @Output() registrosLeidos = new EventEmitter<Registro[]>();
 
   constructor() { }
 
@@ -25,26 +27,33 @@ export class FileReaderComponent {
     reader.readAsText(file);
   }
 
+
+
+
   processFileContent(content: string) {
-    // Aquí procesas el contenido del archivo
-    // Por ejemplo, puedes dividir el contenido por líneas y luego por columnas
     const lines: string[] = content.split('\n');
-    const registros = [];
+    const registros: Registro[] = [];
     for (let line of lines) {
       const columns: string[] = line.split('|').map(col => col.trim());
-      // Aquí podrías convertir las columnas en un objeto Registro o hacer cualquier otro tipo de procesamiento
-      // Por ejemplo:
-      const registro = {
-        Numero: parseInt(columns[0]),
-        Titulo: columns[1],
-        Expediente: parseInt(columns[2]),
-        Procedencia: columns[3],
-        NInterno: parseInt(columns[4]),
-        NOrga: columns[5],
-        Fecha: new Date(columns[6]) // Asegúrate de convertir la fecha correctamente
+      console.log('Columns:', columns); // Verifica cómo se dividen las columnas
+      const registro: Registro = {
+        area: '', // Agrega un valor para 'area'
+        numero: parseInt(columns[0]),
+        titulo: columns[1],
+        expediente: parseInt(columns[2]),
+        procedencia: columns[3],
+        nInterno: parseInt(columns[4]),
+        organizacion: columns[5],
+        fecha: columns[6],
+        usuario: columns[7],
+        adjunto: columns[8],
       };
+      console.log('Registro:', registro); // Verifica el objeto de registro creado
       registros.push(registro);
     }
-    console.log(registros);
+    console.log('Registros:', registros); // Verifica el array de registros
+    this.registrosLeidos.emit(registros);
   }
+  
+  
 }
