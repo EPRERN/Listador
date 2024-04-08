@@ -1,3 +1,6 @@
-<label style="color: brown; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: large"><strong>Selecciona un Archivo .txt</strong></label><br><br>
-<input type="file" (change)="onFileSelected($event)">
+<!-- <label style="color: brown; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: large"><strong>Selecciona un Archivo .txt</strong></label><br><br>
+<input type="file" (change)="onFileSelected($event)"> -->
 
+<ngx-file-drop (onFileDrop)="onFileDropped($event)">
+    Arrastra y suelta un archivo aquí
+</ngx-file-drop>

@@ -1,0 +1,18 @@
+<input type="file" (change)="onFileChange($event)" accept=".xlsx">
+<table *ngIf="data.length > 0">
+    <tr>
+        <th>Etiqueta</th>
+        <th></th>
+        <th *ngFor="let header of headers">{{ header }}</th>
+        
+    </tr>
+    <tr *ngFor="let row of data; let rowIndex = index">
+        
+        <td><input type="text" [(ngModel)]="etiquetas[rowIndex]"></td> <!-- Input de etiqueta -->
+        <td>
+            <button>guardar</button>
+        </td>
+        <td *ngFor="let cell of row">{{ cell }}</td>
+    </tr>
+
+</table>

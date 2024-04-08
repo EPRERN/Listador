@@ -7,11 +7,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FileReaderComponent } from './components/file-reader/file-reader.component';
 
+
+
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { CapturaExcelComponent } from './components/captura-excel/captura-excel.component';
+import { CapturaTxtComponent } from './components/captura-txt/captura-txt.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
     FileReaderComponent,
+    CapturaExcelComponent,
+    CapturaTxtComponent
     
   ],
   imports: [
@@ -19,7 +29,8 @@ import { FileReaderComponent } from './components/file-reader/file-reader.compon
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    NgxFileDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

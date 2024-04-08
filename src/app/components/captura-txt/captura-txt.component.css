@@ -1,0 +1,31 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px; /* Aumentamos el espacio alrededor de las celdas */
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr.encabezado th {
+  font-weight: bold; /* Hacemos que los encabezados sean más visibles */
+}
+
+tr.fila-par {
+  background-color: #f9f9f9; /* Cambiamos el color de fondo de las filas pares */
+}
+
+tr.fila-impar {
+  background-color: #ffffff; /* Cambiamos el color de fondo de las filas impares */
+}
+
+tr:hover {
+  background-color: #f5f5f5; /* Cambiamos el color de fondo al pasar el cursor sobre una fila */
+}

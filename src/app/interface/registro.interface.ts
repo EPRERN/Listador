@@ -1,10 +1,10 @@
 export interface Registro {
     area:string;
-    numero: number;
+    numero: string;
     titulo: string;
-    expediente: number;
+    expediente: string;
     procedencia: string;
-    nInterno: number;
+    nInterno: string;
     organizacion: string;
     usuario: string;
     fecha: string;

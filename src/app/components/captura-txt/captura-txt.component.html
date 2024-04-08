@@ -1,0 +1,16 @@
+<div *ngIf="contenidoArchivo">
+  <table>
+    <thead>
+      <tr class="encabezado">
+        <th *ngFor="let header of datosTabla[0]">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fila of datosTabla.slice(1); let i = index" [class.fila-par]="i % 2 === 0" [class.fila-impar]="i % 2 !== 0">
+        <td *ngFor="let celda of fila">{{ celda }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<input type="file" (change)="onFileSelected($event)">

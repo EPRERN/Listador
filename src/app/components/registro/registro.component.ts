@@ -18,7 +18,10 @@ export class RegistroComponent {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.registrosFiltrados = this.registros; // Verifica que se inicialice correctamente
+  }
+  
 
   aplicarFiltros() {
     // Lógica de filtrado...
@@ -27,8 +30,9 @@ export class RegistroComponent {
   // Método para capturar los registros leídos
   capturarRegistros(registros: Registro[]) {
     this.registros = registros; // Actualizar los registros con los leídos del archivo
-    this.registrosFiltrados = this.registros; // Actualizar los registros filtrados
+    this.registrosFiltrados = [...this.registros]; // Hacer una copia de los registros para actualizar 'registrosFiltrados'
   }
+  
 
 
 

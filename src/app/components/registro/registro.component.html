@@ -5,10 +5,13 @@
 
 
 <br><br><br>
+<h1>Capturar Excel</h1>
+<app-captura-excel></app-captura-excel>
+<br><br><br>
 
-
-
-<div style="margin-left: 155px;">
+<h1>Capturar Txt</h1>
+<app-captura-txt></app-captura-txt>
+<!-- <div style="margin-left: 155px;">
     <app-file-reader (registrosLeidos)="capturarRegistros($event)"></app-file-reader>
     <button (click)="aplicarFiltros()">Capturar</button>
     <br><br>
@@ -22,65 +25,65 @@
     <br><br><br><label for="">Seleccione Area:</label>
     <select [(ngModel)]="areaSeleccionada" (change)="aplicarFiltros()">
         <option value="">Seleccione un área</option>
-        <!-- Aquí puedes generar opciones basadas en tus datos -->
+        
     </select>
     <br><br>
     <button>Exportar Excel
 
     </button>
 
-</div>
+</div> -->
 
 
 
 <br><br><br><br>
 
 
-<table mat-table [dataSource]="registrosFiltrados">
+<!-- <table mat-table [dataSource]="registrosFiltrados">
 
-    <!-- ÁREA Column -->
+   
     <ng-container matColumnDef="Area">
         <th mat-header-cell *matHeaderCellDef> ÁREA </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.area }} </td>
     </ng-container>
 
-    <!-- Número Column -->
-    <ng-container matColumnDef="Numero"> <!-- Cambiado de 'numero' a 'Numero' -->
+   
+    <ng-container matColumnDef="Numero">
         <th mat-header-cell *matHeaderCellDef> Número </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.Numero }} </td>
     </ng-container>
 
 
-    <!-- Título Column -->
+   
     <ng-container matColumnDef="Titulo">
         <th mat-header-cell *matHeaderCellDef> Título </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.titulo }} </td>
     </ng-container>
-    <!-- Expediente Column -->
+   
     <ng-container matColumnDef="Expediente">
         <th mat-header-cell *matHeaderCellDef> Expediente </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.expediente }} </td>
     </ng-container>
 
-    <!-- Procedencia Column -->
+   
     <ng-container matColumnDef="Procedencia">
         <th mat-header-cell *matHeaderCellDef> Procedencia </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.procedencia }} </td>
     </ng-container>
 
-    <!-- Número Interno Column -->
+  
     <ng-container matColumnDef="NInterno">
         <th mat-header-cell *matHeaderCellDef> Nº Interno </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.nInterno }} </td>
     </ng-container>
 
-    <!-- NOrga Column -->
+    
     <ng-container matColumnDef="Organiz">
         <th mat-header-cell *matHeaderCellDef> N.rga </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.nOrga }} </td>
     </ng-container>
 
-    <!-- Fecha Column -->
+   
     <ng-container matColumnDef="Fecha">
         <th mat-header-cell *matHeaderCellDef> Fecha </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.fecha | date }} </td>
@@ -88,20 +91,20 @@
 
 
 
-    <!-- Organización Column -->
+  
     <ng-container matColumnDef="Organizacion">
         <th mat-header-cell *matHeaderCellDef> Organización </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.Organizacion }} </td>
     </ng-container>
 
-    <!-- Usuario Column -->
+  
     <ng-container matColumnDef="Usuario">
         <th mat-header-cell *matHeaderCellDef> Usuario </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.Usuario }} </td>
     </ng-container>
 
 
-    <!-- Adjunto Column -->
+   
     <ng-container matColumnDef="Adjunto">
         <th mat-header-cell *matHeaderCellDef> Se adjunta </th>
         <td mat-cell *matCellDef="let registro"> {{ registro.Adjunto }} </td>
@@ -110,4 +113,4 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let registro; columns: displayedColumns;"></tr>
-</table>
+</table> -->
