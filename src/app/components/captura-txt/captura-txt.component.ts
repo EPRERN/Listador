@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class CapturaTxtComponent {
   contenidoArchivo: string | undefined;
   datosTabla: string[][] = [];
+  longitudColumnas: number[] = [22, 182, 19, 34, 52, 55, 51, 22, 20]; // Longitud esperada de cada columna
 
   constructor() {}
 
@@ -15,7 +16,7 @@ export class CapturaTxtComponent {
     const file: File = event.target.files[0];
     if (file) {
       const reader: FileReader = new FileReader();
-      reader.readAsText(file);
+      reader.readAsText(file, 'ISO-8859-1');
       reader.onload = () => {
         this.contenidoArchivo = reader.result as string;
         this.parsearContenidoArchivo();
@@ -26,26 +27,32 @@ export class CapturaTxtComponent {
     }
   }
 
-
-
   parsearContenidoArchivo() {
     if (this.contenidoArchivo) {
       const lineas = this.contenidoArchivo.split('\n');
-      const headers = lineas[0].split('\t'); // Obtener los encabezados
-      this.datosTabla.push(headers); // Agregar los encabezados a la tabla
+      const headers = ['Nmero', 'Ttulo', 'N Expediente', 'Procedencia', 'N Interno', 'Organizacin', 'Usuario', 'Fecha', 'Se adjunta'];
+      this.datosTabla.push(headers);
   
       for (let i = 1; i < lineas.length; i++) {
-        const campos = lineas[i].split('\t'); // Dividir los campos de la línea
-        const registro: string[] = [];
-        for (let j = 0; j < headers.length; j++) {
-          registro.push(campos[j] || ''); // Asegurar que haya un valor para cada campo
+        const fila = [];
+        let posicion = 0;
+        for (let j = 0; j < this.longitudColumnas.length; j++) {
+          const longitud = this.longitudColumnas[j];
+          const dato = lineas[i].substr(posicion, longitud).trim();
+          fila.push(dato);
+          posicion += longitud;
         }
-        this.datosTabla.push(registro); // Agregar el registro a la tabla
+        this.datosTabla.push(fila);
       }
     }
   }
-  
 }
+
+
+
+
+
+
 
 
 
